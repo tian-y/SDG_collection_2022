@@ -2,12 +2,12 @@
 
 rm(list = ls())
 file_name = "SDG_reporting_2021.rds"
-path_to_read = "code/SDG_reporting/"
+path_to_read = "Code/SDG_reporting_working_2022/"
 files_to_read = paste0(path_to_read, file_name)
 
 df_data <-readRDS(files_to_read)
 
-path_2021 = "code/SDG_Reporting/2021/"
+path_2021 = "Code/SDG_reporting_working_2022/2021/"
 files_to_read = paste0(path_2021, "regional grouping.RData") 
 
 load(files_to_read)
