@@ -41,4 +41,4 @@ vignettes/*.pdf
 Code/SDG_reporting_working_2022/2021
 
 *.DS_Store
-
+temp/
