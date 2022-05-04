@@ -9,7 +9,8 @@ packages <-
     "readxl",
     "openxlsx",
     # "httr", 
-    "countrycode"
+    "countrycode", 
+    "writexl"
   )
 # Install uninstalled packages
 lapply(packages[!(packages %in% installed.packages())], install.packages)
