@@ -100,6 +100,8 @@ df_total = rbind(df_individuals, df_for_annex_wide)
 #                          , 5726, 5728
 #                          , 5827, 5833)
 
+# Specific analysis for PRESS indicator
+
 files_to_read = paste0(path_2021, "files_to_work_on.rds")
 load(files_to_read)
 rm(files_to_read)
