@@ -4,6 +4,6 @@ GeoAreaCode,code
 GeoAreaName,name
 TimePeriod,year
 Value,value
-Time_Detail,year
+Time_Detail,year2
 ISOalpha3,iso3c
-Type,geotype
+Type,geo_type
