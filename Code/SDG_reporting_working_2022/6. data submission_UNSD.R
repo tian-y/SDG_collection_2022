@@ -34,6 +34,7 @@ assign(df_name, subset)
 
 list_ins = unique(df_sdg$indicator) %>% as.character()
 i = list_ins[1]
+# procude only 2021 results for the data annex
 for (i in list_ins) {
   subset = df_sdg %>%
     filter(indicator == i) %>%
@@ -44,5 +45,10 @@ for (i in list_ins) {
   df_name = paste0("indicator_", i)
   write.csv(subset, file = paste0(df_name, ".csv"))
   assign(df_name, subset)
-  
 }
+
+
+
+
+
+
