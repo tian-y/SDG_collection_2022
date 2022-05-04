@@ -1,6 +1,6 @@
-source("YTreviewTemp/SDG_reporting/2.  generate annex and new data.R")
+source("code/SDG_reporting_working_2022/2.  generate annex and new data_new.R")
 
-path_to_read = "YTreviewTemp/SDG_reporting/"
+path_to_read = "Code/SDG_reporting_working_2022/"
 file_name = "press_2021.csv"
 file_to_read = paste0(path_to_read, file_name)
 df_press <- read.csv(file_to_read, encoding = "utf-8", stringsAsFactors = F)
@@ -60,3 +60,4 @@ df_final_submission <-  df_history_to_2021_withpress
 file_name = "SDG_reporting_2021_new.rds"
 
 saveRDS(df_final_submission , file = paste0(path_to_read, file_name) )
+
