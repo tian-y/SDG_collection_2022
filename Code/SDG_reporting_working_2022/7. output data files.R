@@ -31,7 +31,7 @@ names(standard_names)
 
 # load(file = "Code/SDG_reporting_working_2022/2021/regional grouping.RData")
 i = "17.19.1"
-i = list_ins[1]
+# i = list_ins[1]
 for (i in list_ins) {
   # if(i == "17.19.1")
   subset = df_total %>%
@@ -43,7 +43,7 @@ for (i in list_ins) {
     filter(!is.na(value)) %>%
     group_by(year) %>%
     summarise(cnt = n()) %>%
-    .$year
+    .$year 
   
   if(i == "17.19.1") {
     subset <- subset %>%
@@ -63,7 +63,7 @@ for (i in list_ins) {
   subset <- subset %>%
     select(all_of(names_match$var_name_set))
   
-  names(subset) = names_match$standard_name
+  names(subset) = names_match[,1]
   
   file_to_read = list_files %>%
     filter(ind_name_data == i) %>%
@@ -87,7 +87,8 @@ for (i in list_ins) {
   names(subset_full)
   
   if(i == "17.19.1") {
-    data = subset_full
+    data = rbind(output[1,], subset_full) %>%
+      slice(-1)
     data = data %>% filter(TimePeriod == 2019)
   } else {
     data = rbind(output, subset_full)
@@ -102,8 +103,12 @@ for (i in list_ins) {
 
   
   wb = openxlsx::loadWorkbook(file_to_read)
-  # openxlsx::removeWorksheet( wb, sheet = "Data")
-  # addWorksheet(wb , "Data")
+  
+  if(i == "17.19.1") {
+    openxlsx::removeWorksheet( wb, sheet = "Data")
+    addWorksheet(wb , "Data")
+  }
+
   writeData(wb, "Data", x = data)
   
   
