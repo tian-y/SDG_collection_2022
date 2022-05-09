@@ -89,7 +89,7 @@ for (i in list_ins) {
   if(i == "17.19.1") {
     data = rbind(output[1,], subset_full) %>%
       slice(-1)
-    data = data %>% filter(TimePeriod == 2019)
+    data = data %>% filter(TimePeriod %in% c(2016:2019))
   } else {
     data = rbind(output, subset_full)
   }
