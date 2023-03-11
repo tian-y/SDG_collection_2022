@@ -1,3 +1,4 @@
+rm(list = ls())
 source("Code/SDG_reporting_working_2022/0. boot.R")
 
 df_nsds <- read.csv("Data/Status_table_for_analysis.csv", 
@@ -9,8 +10,8 @@ df_nsds <- df_nsds %>%
 
 df_ida <- read_csv("~/dropbox/PARIS21/R/PRESS/Data/Analysis/IDA status.csv")
 df_ida <- df_ida %>% 
-  # select(iso = Code, ida = `2020`) %>% 
-  filter(`2020` == 1) 
+  select(iso = Code, ida = `2020`) %>%
+  filter(ida == 1) 
 
 df_nsds <- df_nsds %>% 
   left_join(df_ida) %>% 
@@ -34,6 +35,6 @@ df_nsds <- df_nsds %>%
                           summary))
 
 
-
+saveRDS(df_nsds, file = "Output/NSDS_Status_2023.RDS")
 
 df_nsds %>% writexl::write_xlsx("Output/NSDS_Status_2023.xlsx")
