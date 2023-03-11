@@ -35,6 +35,13 @@ rm(df_indicator)
 
 df_sdg <- readRDS("data/2023/03. adding country names and codes.Rds")
 
+df_sdg$nsds_funded %>% table
+df_sdg2022 %>% filter(indicator == "nsds_funded") %>% select(value) %>% table
+
+vec_fullyfunded_2022 <- df_sdg2022 %>% filter(indicator == "nsds_funded", value == 1) %>% .$m49
+vec_fullyfunded_2023 <- df_sdg %>% filter(nsds_funded == 1) %>% select(m49) %>% .$m49
+vec_fullyfunded_2023 %in% vec_fullyfunded_2022
+
 
 df_sdg <- df_sdg %>% 
   gather(key = indicator, value = value, -token, -m49, -country, -iso)
@@ -48,6 +55,11 @@ df_sdg2022_updated <- df_sdg2022 %>%
 
 df_sdg2022_updated <- df_sdg2022_updated %>% 
   mutate(value_final = ifelse(is.na(value_2023), value_2022, value_2023))
+
+df_sdg2022_updated %>% filter(indicator == "nsds_funded") %>% select(value_final) %>% table
+df_sdg2022_updated %>% filter(indicator == "nsds_implement") %>% select(value_final) %>% table
+df_sdg2022_updated %>% select(-value_2022, -value_2023) %>% spread(key = indicator, value = value_final) %>% select(m49, nsds_funded, nsds_implement) %>% filter(nsds_implement ==1) %>% select(nsds_funded) %>% table
+
 
 df_sdg2022_updated %>% 
   group_by(indicator, value_final) %>% 
