@@ -33,8 +33,8 @@ data <- rbind(data_old, data_new)
 
 data <- bind_rows(data_old, data_new)
 
-df_completed <- data %>% 
-  filter(!is.na(submitdate))
+df_completed <- data # %>% 
+  # filter(!is.na(submitdate))
 
 
 df_final_reporting <- df_completed %>% 
