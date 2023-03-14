@@ -13,11 +13,17 @@ df_token <- df_token %>%
   select(token, M49Code, countryname, ISOCode) %>% 
   rename(m49 = M49Code, 
          country = countryname, 
-         iso = ISOCode)
+         iso = ISOCode) 
 
+df_token <- df_token %>% 
+  filter(iso!= "P21")
 
+# df_token %>% 
+#   filter(!is.na(iso)) %>% 
+#   mutate(iso3n = countrycode(iso, "iso3c", "iso3n")) %>% 
+#   filter(m49!=iso3n)
 
 df_sdg <- df_sdg %>%
-  inner_join(df_token)
+  right_join(df_token)
 
 saveRDS(df_sdg, file = "data/2023/03. adding country names and codes.Rds")
