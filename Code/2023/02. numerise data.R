@@ -24,8 +24,10 @@ df_sdg <- df_sdg %>%
 rm(df_statlaw)
 
 df_sdg <- df_sdg %>% 
-  mutate(across(nsds_exist:nsds_funded, ~ as.numeric(.x == "Yes"))) %>% 
-  mutate(across(nsds_gov:nsds_none, ~ as.numeric(.x == "Yes")))
+  mutate(across(nsds_exist:nsds_none, ~ as.numeric(.x == "Yes"))) 
+
+df_sdg <- df_sdg %>% 
+  mutate(across(nsds_gov:nsds_other, ~ ifelse(.x == 0, NA, .x)))
 
 df_sdg <- df_sdg %>% 
   mutate(across(nsds_gov:nsds_other, ~ ifelse(nsds_none ==1, 0, .x)))
