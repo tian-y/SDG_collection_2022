@@ -7,7 +7,7 @@ source("code/2023/survey_161377_R_syntax_file.R")
 names(data_new)
 names(data)
 
-a <- attributes(data_new)
+# a <- attributes(data_new)
 
 vec_att_new <- attributes(data_new)$names
 vec_att_old <- attributes(data)$names
