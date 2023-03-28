@@ -79,6 +79,9 @@ df_sdg_since2019 <- df_past %>%
   rbind(rename(df_sdg, value = value_final))
 
 
+df_sdg_since2019 <- df_sdg_since2019 %>% 
+  inner_join(df_region_code)
+
 save(df_sdg_since2019, file = "data/2023/08. full 17.18 data without regional aggregation.RDS")
 
 df_sdg_since2019 %>% 
