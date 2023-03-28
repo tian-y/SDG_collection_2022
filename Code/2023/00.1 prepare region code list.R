@@ -14,8 +14,8 @@ df_code <- df_code %>%
          )
 
 df_code_long <- df_code %>% 
-  gather(key = "region_type", value = "regioncode", 
+  gather(key = "region_type", value = "region_code", 
          -m49, -iso) %>% 
-  filter(!is.na(regioncode))
+  filter(!is.na(region_code))
 
 saveRDS(df_code_long, file = "data/Auxiliary/region_code.RDS")
