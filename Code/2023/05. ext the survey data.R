@@ -49,3 +49,10 @@ df_sdg %>%
 
 saveRDS(df_sdg, file = "Data/2023/05. ext the survey data.RDS")
 
+df_sdg_reduced <- df_sdg %>% 
+  select(m49, indicator, value_final) %>% 
+  unique %>% 
+  mutate(year = 2022)
+
+df_sdg_reduced %>% 
+  saveRDS(file = "data/2023/05. ext the survey data_simpliefied.RDS")
