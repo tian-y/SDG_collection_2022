@@ -1,6 +1,6 @@
 rm(list = ls())
 gc()
-load("data/2023/06. intermediate fixing multi recipient issues.Rdata")
+load("data/2023/06.1 intermediate fixing multi recipient issues.Rdata")
 df_region_code <- readRDS("data/Auxiliary/region_code.RDS")
 
 # 1. split out the recipients with iso and add m49 code
@@ -82,5 +82,19 @@ df_recipients_regions <- df_recipients_fixed %>%
 
 saveRDS(df_recipients_regions , "data/2023/06.2 Recipients and region codes.RDS")
 
+df_sdg <- df_sdg %>% 
+  ungroup %>% 
+  mutate(id = 1:n()) %>% 
+  rename(rec = ListRecip) 
 
+df_sdg_region <- df_sdg %>% 
+  select(-RecipientCode) %>% 
+  inner_join(df_recipients_regions)
+
+df_sdg_region %>% 
+  filter(!id %in% df_sdg$id)
+
+
+df_sdg_region %>% 
+  saveRDS("data/2023/06.2 17.19.1 data with region codes.RDS")
 
