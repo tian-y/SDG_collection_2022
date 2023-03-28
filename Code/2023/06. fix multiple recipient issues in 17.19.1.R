@@ -1,6 +1,5 @@
 rm(list = ls())
 gc()
-# df_press <- readRDS("~/dropbox/PARIS21/R/PRESS/Data/Intermediate/final_PRESS_2022.rds")
 # 1. load original data from PRESS
 df_press <- readRDS("~/dropbox/PARIS21/R/PRESS/Output/CH/data2022_final_toUpload_2022-10-27.rds")
 
@@ -29,7 +28,7 @@ df_recipients <- df_recipients %>%
   unique %>% 
   filter(!is.na(rec))
 ### save a copy of the recipient list
-df_recipients_full <- df_recipients
+# df_recipients_full <- df_recipients
 
 ## 2.3 filter out recipients without a code
 df_recipients_without_iso <- df_recipients_full %>% 
@@ -45,7 +44,17 @@ df_recipients_regional <- df_recipients_without_iso  %>%
 
 write_csv(df_recipients_regional, file = "data/2023/temp_regional.csv")
 ### work in excel sheet
-df_recipients_regional_fixed <- read_csv("data/2023/temp_regional_fixed.csv")
+df_recipients_regional_fixed <- read_csv("data/2023/temp_regional_fixed.csv") %>% 
+  rename(recipient_name = rec)
+
+df_recipients_regional_fixed_long <- df_recipients_regional_fixed %>% 
+  gather(key = "region_type", 
+         value = "region_code", 
+         -recipient_name) %>% 
+  filter(!is.na(region_code))
+
+rm(df_recipients_regional_fixed, 
+   df_recipients_regional)
 
   
 ## 2.5 for the rest, we will need to split them by commas
@@ -76,7 +85,8 @@ rm(#vec_rec_all,
 df_rec_all <- tibble(rec = vec_rec_all) %>%  
   mutate(iso = countrycode(vec_rec_all, "country.name", "iso3c")) %>% 
   mutate(m49 = countrycode(iso, "iso3c", "iso3n"))
-
+attributes(df_rec_all)$description <- "Splited recipients"
+rm(vec_rec_all)
 
 ## 2.8 for ones still without an iso, try to fix it
 vec_rec_no_iso <- df_rec_all %>% 
@@ -91,15 +101,31 @@ write_csv(df_rec_no_iso, file = "Data/2023/temp_rec_no_iso.csv")
 df_rec_no_iso_fixed <- read_csv("data/2023/temp_rec_no_iso_fixed.csv")
 
 
+df_rec_no_iso_fixed_long <- df_rec_no_iso_fixed %>% 
+  gather(key = "region_type", value = "region_code", -recipient_name) %>% 
+  filter(!is.na(region_code))
+
+rm(df_rec_no_iso_fixed, 
+   df_rec_no_iso, 
+   vec_rec_no_iso)
+
+## 2.9 merge it with regional df for a unified table for regional recipients
+df_rec_no_iso_all_fixed <- rbind(df_rec_no_iso_fixed_long, 
+                           df_recipients_regional_fixed_long)
+
+df_rec_no_iso_all_fixed <- df_rec_no_iso_all_fixed %>% 
+  unique
+
+rm(df_rec_no_iso_fixed_long, df_recipients_regional_fixed_long)
 
 
-df_recipients <- tibble(recipients = vec_recipients)
 
-df_recipients <- df_recipients %>% 
-  mutate(iso = countrycode(recipients, "country.name", "iso3c"))
-
-df_recipients %>% 
-  filter(is.na(iso)) %>% 
-  select(recipients) %>% 
-  unique %>% 
-  nrow
+save(df_recipients, 
+     df_rec_all,
+     df_recipients_without_iso, 
+     df_recipients_without_iso_non_regional, 
+     df_rec_no_iso_all_fixed, 
+     df_sdg, 
+     df_rec_split, 
+     file = "data/2023/06. intermediate fixing multi recipient issues.Rdata"
+     )
