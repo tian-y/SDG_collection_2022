@@ -1,26 +1,24 @@
-recipient_name,sdg_regon,m49_level1_region,m49_level2_region,MDG,LDC,LLDC
-Asia-Pacific,,,,,,
-Eastern Europe,513,150,151,514,,
-Western Europe and Others,513,150,155,514,,
-MENA,747,,,,,
-Africa,,,,,,
-Latin America and Caribbean,419,419,,419,,
-Caribbean,419,419,29,419,,
-Multilateral Unallocated,,,,,,
-,,,,,,
-Kosovo,513,150,514,,,432
-North of Sahara,747,15,15,746,,
-Sub-Saharan Africa,202,202,,738,,
-Central Asia,62,142,143,135,,432
-East Asia,753,142,30,,,
-Middle East,513,,,,,
-South Asia,62,142,34,34,,
-Central America,419,419,13,419,,
-South America,419,419,5,419,,
-Oceania,543,9,,543,,
-States Ex-Yugoslavia,513,150,39,514,,
-Bilateral Unallocated,,,,,,
-ECCU / ECCB,419,419,29,419,,
-WAEMU:West African Eco/Monetary Un,202,202,11,738,,
-Arab Monetary Fund,747,,,,,
-Caucasus and Central Asia,,142,,,,
+recipient_name
+Asia-Pacific
+Eastern Europe
+Western Europe and Others
+MENA
+Africa
+Latin America and Caribbean
+Caribbean
+
+Kosovo
+North of Sahara
+Sub-Saharan Africa
+Central Asia
+East Asia
+Middle East
+South Asia
+Central America
+South America
+Oceania
+States Ex-Yugoslavia
+ECCU / ECCB
+WAEMU:West African Eco/Monetary Un
+Arab Monetary Fund
+Caucasus and Central Asia
