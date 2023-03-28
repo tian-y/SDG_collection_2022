@@ -49,7 +49,8 @@ df_indicator_names <- tibble(indicator_past = unique(df_past$indicator) ,
 
 df_past <- df_past %>% 
   rename(indicator_past = indicator) %>% 
-  inner_join(df_indicator_names)
+  inner_join(df_indicator_names) %>% 
+  filter(!is.na(indicator))
 
 rm(df_indicator_names, df_past1, df_past2, df_past3)
 
@@ -82,7 +83,7 @@ df_sdg_since2019 <- df_past %>%
 df_sdg_since2019 <- df_sdg_since2019 %>% 
   inner_join(df_region_code)
 
-save(df_sdg_since2019, file = "data/2023/08. full 17.18 data without regional aggregation.RDS")
+saveRDS(df_sdg_since2019, file = "data/2023/08. full 17.18 data without regional aggregation.RDS")
 
 df_sdg_since2019 %>% 
   select(m49, indicator, year) %>% 
