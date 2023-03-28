@@ -119,7 +119,11 @@ df_rec_no_iso_all_fixed <- df_rec_no_iso_all_fixed %>%
 
 rm(df_rec_no_iso_fixed_long, df_recipients_regional_fixed_long)
 
-
+attributes(df_recipients)$description <- "DF0: Original list of all unique recipients"
+attributes(df_recipients_without_iso)$description <- "DF1: All recipients that does not have a country code. Subset of DF0"
+attributes(df_recipients_without_iso_non_regional)$description <- "DF1.1: Recipients that do not have a country code and require txt split analysis. Subset of DF1"
+attributes(df_rec_no_iso_all_fixed)$description <- "DF1x: Region code for recipients that are 1. regional ones from DF1 and splited ones from DF1.1"
+attributes(df_rec_split)$description <- "DF1.1_advanced: Results from Spliting DF1.1 "
 
 save(df_recipients, 
      df_rec_all,
