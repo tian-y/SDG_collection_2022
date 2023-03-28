@@ -31,7 +31,7 @@ df_recipients <- df_recipients %>%
 # df_recipients_full <- df_recipients
 
 ## 2.3 filter out recipients without a code
-df_recipients_without_iso <- df_recipients_full %>% 
+df_recipients_without_iso <- df_recipients %>% 
   filter(is.na(iso)) 
 
 ## 2.4 for the ones that mentioned "specified" or "un allocated" or "regional", we assign a merker for special treatment
@@ -59,7 +59,8 @@ rm(df_recipients_regional_fixed,
   
 ## 2.5 for the rest, we will need to split them by commas
 df_recipients_without_iso_non_regional <- df_recipients_without_iso %>% 
-  filter(!regional, !unspecified)
+  filter(!regional, !unspecified) %>% 
+  mutate(num = c(1:n()))
 
 
 ## 2.6 split the comma-separated ones  
@@ -71,7 +72,7 @@ list_recipients <- vec_recipients %>%
 
 vec_rec_all <- list_recipients %>% unlist %>% unique
 vec_rec_num <- sapply(list_recipients, FUN = function(x) length(unlist(x)))
-vec_rec_num_4df <- rep(c(1:length(list_recipients)), vec_rec_num)
+vec_rec_num_4df <- rep( df_recipients_without_iso_non_regional$num, vec_rec_num)
 vec_rec_all_4df <- unlist(list_recipients)
 df_rec_split <- tibble(rec_split = vec_rec_all_4df, num = vec_rec_num_4df )
 rm(#vec_rec_all, 
