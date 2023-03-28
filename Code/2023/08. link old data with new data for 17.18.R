@@ -79,7 +79,7 @@ df_sdg_since2019 <- df_past %>%
   rbind(rename(df_sdg, value = value_final))
 
 
-save(df_sdg_since2019, file = "data/08. full 17.18 data without regional aggregation.RDS")
+save(df_sdg_since2019, file = "data/2023/08. full 17.18 data without regional aggregation.RDS")
 
 df_sdg_since2019 %>% 
   select(m49, indicator, year) %>% 
