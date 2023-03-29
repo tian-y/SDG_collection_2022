@@ -24,7 +24,9 @@ df_sdg_world <- df_sdg %>%
   filter(indicator != "nsds_none" , indicator != "nsds_exist") %>% 
   # group_by(id) %>% 
   # filter(row_number()==1) %>% 
-  filter(!is.na(m49)) %>%
+  group_by(year, indicator, m49) %>% 
+  filter(row_number()==1) %>% 
+  filter(!is.na(m49)) %>% 
   group_by(year, indicator)  %>% 
   summarise(total  = sum(value, na.rm = T)) %>% 
   ungroup() %>% 
