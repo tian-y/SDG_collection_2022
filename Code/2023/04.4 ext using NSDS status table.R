@@ -4,8 +4,6 @@ source("code/SDG_reporting_working_2022/0. boot.R")
 df_sdg <- readRDS("Data/2023/04.3 ext using CTGAP 2022.RDS")
 df_nsds <- readRDS("Output/NSDS_Status_2023.RDS")
 
-
-
 df_nsds <- df_nsds %>% 
   select(country_nsds = Country, Status) %>% 
   mutate(m49 = countrycode(country_nsds, "country.name", "iso3n")) 
