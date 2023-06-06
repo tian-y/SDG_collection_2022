@@ -16,16 +16,26 @@ df_sdg_country <- df_sdg %>%
   # rename(year = reportedyear) %>% 
   filter(indicator != "nsds_none" , indicator != "nsds_exist") %>% 
   filter(!is.na(m49)) %>% 
-  group_by(m49, year, indicator)  %>% 
-  summarise(total  = sum(value, na.rm = T)) 
+  select(m49, year, indicator, value) %>% 
+  unique %>% 
+  rename(total = value)
+  # group_by(m49, year, indicator)  %>% 
+  # summarise(total  = sum(value, na.rm = T)) 
+
+df_sdg_country %>% 
+  select(m49, year, indicator) %>% 
+  unique %>% 
+  nrow
 
 df_sdg_world <- df_sdg %>% 
   # rename(year = reportedyear) %>% 
   filter(indicator != "nsds_none" , indicator != "nsds_exist") %>% 
   # group_by(id) %>% 
   # filter(row_number()==1) %>% 
+  select(year, indicator, m49, value) %>%
+  unique() %>% 
   group_by(year, indicator, m49) %>% 
-  filter(row_number()==1) %>% 
+  # filter(row_number()==1) %>%
   filter(!is.na(m49)) %>% 
   group_by(year, indicator)  %>% 
   summarise(total  = sum(value, na.rm = T)) %>% 
@@ -38,5 +48,5 @@ df_sdg_reporting <- rbind(df_sdg_world,
   # filter(year < 2021) %>% 
   # mutate(indicator = "17.19.1")
 
-saveRDS(df_sdg_reporting, file = "data/2023/09 17.8 ready raw data.RDS")
+saveRDS(df_sdg_reporting, file = "data/2023/09 17.18 ready raw data.RDS")
 
