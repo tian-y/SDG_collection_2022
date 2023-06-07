@@ -1,0 +1,16 @@
+Indicator
+SeriesID
+SeriesDescription
+GeoAreaCode
+GeoAreaName
+TimePeriod
+Value
+Time_Detail
+Source
+FootNote
+Nature
+Units
+Reporting Type
+ISOalpha3
+Type
+SeriesCode
