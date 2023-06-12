@@ -1,5 +1,5 @@
 rm(list = ls())
-
+source("code/boot.R")
 ## working on 17.18
 df_sdg_reporting_regions <- readRDS("data/2023/09 17.18 ready raw data.RDS")
 
