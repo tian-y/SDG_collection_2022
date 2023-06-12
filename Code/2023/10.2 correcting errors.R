@@ -7,6 +7,7 @@ df_sdg_1718 <- readRDS("Data/2023/10. 17.18 filling missing values.RDS")
 df_sdg_1718 <- df_sdg_1718 %>% 
   mutate(country = countrycode(m49,"iso3n", "country.name"), 
          iso = countrycode(m49,"iso3n", "iso3c"))  %>% 
+  mutate(iso = ifelse(is.na(iso), "NULL",iso)) %>% 
   # the south korea case
   mutate(total  = ifelse(iso == "KOR" & indicator =="nsds_funded",1, total )) %>% 
   # the kuwait case
