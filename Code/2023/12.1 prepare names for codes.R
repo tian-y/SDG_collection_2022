@@ -3,7 +3,7 @@
 ## N, O: ISOalpha3 (NULL), Type (Region or Country)
 
 rm(list = ls())
-
+source("Code/boot.R")
 df_sdg <- readRDS("data/2023/10 all SDG ready to be reported in the simplest format.RDS")
 
 df_code_country <- read_xlsx("document/Code to country names.xlsx")
@@ -13,27 +13,9 @@ names(df_code_region) <- names(df_code_country)
 names(df_code_MDG_only) <- names(df_code_country)
 # df_code_names <- rbind(df_code_region, df_code_country)
 df_code_names <- df_code_country
-
-df_m49_all <- df_sdg %>% 
-  select(m49) %>% 
-  unique
-
-df_m49_all %>%
-  filter(!m49 %in% df_code_names$GeoAreaCode) %>%
-  mutate(country = countrycode(m49,"iso3n","country.name"))
-
-df_m49_all %>%
-  filter(!m49 %in% df_code_names$GeoAreaCode) %>%
-  inner_join(df_sdg) %>%
-  filter(!is.na(total)) %>%
-  select(m49) %>%
-  unique
-
-df_m49_all %>% 
-  filter(!m49 %in% df_code_names$GeoAreaCode) %>% 
-  filter(!m49 %in% df_code_MDG_only$GeoAreaCode)
-rm(df_m49_all)
+source("code/2023/12.1a test if all values are in the code_name list.R")
 rm(df_code_MDG_only)
+rm(df_code_country)
 
 # 514 is Developed Regions in MDG
 
@@ -46,13 +28,22 @@ df_code_names <- df_code_names %>%
 df_code_names %>%
   saveRDS(file = "data/Auxiliary/m49 code and names.RDS")
 # 
-df_sdg <- df_sdg %>%
-  rename(GeoAreaCode = m49, Value = total, TimePeriod = year) %>%
-  mutate(Time_Detail = TimePeriod) %>%
-  mutate(Value = as.character(Value))
+
+names(df_sdg)
 
 df_sdg_reporting <- df_sdg %>%
+  rename(GeoAreaCode = m49, Value = total, TimePeriod = year) %>%
+  mutate(Time_Detail = TimePeriod) # %>%
+  # mutate(Value = as.character(Value))
+# names(df_sdg_reporting)
+# names(df_code_names)
+# is.numeric(df_code_names$GeoAreaCode)
+# is.numeric(df_sdg_reporting$GeoAreaCode)
+
+df_sdg_reporting <- df_sdg_reporting %>%
   inner_join(df_code_names)
+rm(df_code_names)
+
 # 
 # df_sdg_reporting %>% 
 #   filter(GeoAreaCode %in% df_code_region$GeoAreaCode) %>% 
@@ -71,6 +62,8 @@ df_sdg_reporting <- df_sdg_reporting %>%
                        "Region", 
                        "Country"))
 
+rm(df_code_region)
+
 # additional columns to be added
 df_info <- read_xlsx("Document/Info_of_series.xlsx")
 df_sdg_reporting <- df_sdg_reporting %>% 
@@ -85,6 +78,13 @@ vec_var_ordered <- read_lines("Data/Auxiliary/Variable Order for Output.txt")
 
 df_sdg_reporting <- df_sdg_reporting %>% 
   select(all_of(vec_var_ordered))
+
+saveRDS(df_sdg_reporting, file = "Data/2023/12.1 sdg reporting file except value column.RDS")
+
+# final format change for df_sdg_reporting
+df_sdg_reporting <- df_sdg_reporting %>% 
+  mutate(Value = as.character(Value), 
+         Value = ifelse(is.na(Value), "NaN", Value))
 
 df_info <- df_info %>% 
   mutate(output_file_name = paste(116,
