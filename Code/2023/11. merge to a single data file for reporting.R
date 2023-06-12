@@ -1,6 +1,6 @@
 rm(list = ls())
 
-df_sdg_1718 <- readRDS(file = "Data/2023/10.2 17.18 correcting errors.RDS")
+df_sdg_1718 <- readRDS(file = "Data/2023/10.3 17.18 re-regional after correcting errors.RDS")
 df_sdg_1719 <- readRDS(file = "Data/2023/10. 17.19 filling missing values.RDS")
 df_sdg <- rbind(df_sdg_1718, df_sdg_1719)
 
