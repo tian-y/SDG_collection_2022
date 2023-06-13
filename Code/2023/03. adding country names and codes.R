@@ -26,4 +26,6 @@ df_token <- df_token %>%
 df_sdg <- df_sdg %>%
   right_join(df_token)
 
+df_sdg %>% write_csv("data/2023/03. adding country names and codes.csv")
+
 saveRDS(df_sdg, file = "data/2023/03. adding country names and codes.Rds")
