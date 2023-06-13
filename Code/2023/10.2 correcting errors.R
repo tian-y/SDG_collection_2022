@@ -13,8 +13,23 @@ df_sdg_1718 <- df_sdg_1718 %>%
   mutate(total  = ifelse(iso == "KOR" & indicator =="nsds_funded" & year != 2022,NA, total )) %>% 
   mutate(total  = ifelse(iso == "KOR" & year == 2022 & indicator!= "nsds_implement", NA , total )) %>% 
   mutate(total  = ifelse(iso == "KOR" & year == 2022 & indicator== "statlaw", 1 , total )) %>% 
+  mutate(total  = ifelse(iso == "KOR" & year == 2022 & indicator== "nsds_funded", 1 , total )) %>% 
+  mutate(total  = ifelse(iso == "ATG" & year > 2019 & indicator== "nsds_funded", NA , total )) %>% 
+  mutate(total  = ifelse(iso == "LUX" & indicator== "nsds_funded", NA , total )) %>% 
+  mutate(total  = ifelse((iso %in% c("ARG", "BRN") ) 
+                         & !is.na(iso) 
+                         & indicator == "nsds_implement"
+                         & year == 2019, 
+                         1 , total )) %>% 
+  mutate(total  = ifelse(iso == "ECU" & indicator== "nsds_implement" & year ==2020, 1 , total )) %>% 
+  mutate(total  = ifelse((iso == "PLW" ) 
+                         # & !is.na(iso) 
+                         & indicator %in% c("nsds_implement", "nsds_funded")
+                         & !is.na(indicator)
+                         & year == 2019, 
+                         0 , total )) %>% 
   # the kuwait case
-  mutate(total = ifelse(iso == "KWT" & indicator =="statlaw",1, total ))
+  mutate(total = ifelse(iso == "KWT" & indicator =="statlaw",1, total )) 
 
 # the case for correcting using CTGAP data
 df_sdg_1718 %>% 
@@ -61,7 +76,9 @@ df_sdg_1718 %>%
   mutate(`2022` = ifelse(iso == "CIV", NA, `2022`)) %>%
   mutate(`2021` = ifelse(iso == "MDG", NA, `2021`)) %>%
   mutate(`2022` = ifelse(iso == "MDG", NA, `2022`)) %>%
-  mutate(`2021` = ifelse(iso == "SLE", 0, `2021`)) 
+  mutate(`2021` = ifelse(iso == "SLE", 0, `2021`)) %>% 
+  mutate(`2021` = ifelse(iso %in% c("ALB", "BIH", "BLR", "SUR", "MYS"), 
+                         NA, `2021`))
   # mutate(`2022` = `2021`) 
 
 
@@ -84,6 +101,8 @@ df_sdg_1718_replace <- df_sdg_1718 %>%
   mutate(`2021` = ifelse(iso == "MDG", NA, `2021`)) %>%
   mutate(`2022` = ifelse(iso == "MDG", NA, `2022`)) %>%
   mutate(`2021` = ifelse(iso == "SLE", 0, `2021`))  %>% 
+  mutate(`2021` = ifelse(iso %in% c("ALB", "BIH", "BLR", "SUR", "MYS"), 
+                         NA, `2021`)) %>% 
   gather(key = "year", value = "total_new", 
          -indicator, -iso, -country, -m49, -sum) %>% 
   mutate(year = as.numeric(year)) %>% 

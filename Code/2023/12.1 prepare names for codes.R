@@ -98,6 +98,8 @@ df_info <- df_info %>%
 
 vec_source_files <- list.files("Document/DataRequestDocs_116/1. Package for Global reporting/ExcelTemplates_116", full.names = T)
 
+df_summary_key_regions <- read_csv("Data/Auxiliary/Regional_grouping_storyline_order fixed.csv")
+
 for (i in 1:nrow(df_info)) {
   df_output <- df_sdg_reporting %>% 
     filter(SeriesID == df_info$SeriesID[i])
@@ -121,7 +123,16 @@ for (i in 1:nrow(df_info)) {
   saveWorkbook(wb, file = output_file_name, overwrite = T)
   # openxlsx::write.xlsx(wb, 
   #                      file = source_file_name)
+  
+  df_output %>% 
+    filter(Time_Detail == max(Time_Detail)) %>% 
+    select(GeoAreaCode, Value) %>% 
+    right_join(df_summary_key_regions) %>% 
+    unique %>% 
+    arrange(Order) %>% 
+    print
   print(output_file_name)
+  
 }
 
 
