@@ -17,46 +17,9 @@ source("code/2023/07. create data for indicator 17.19.1.R")
 source("code/2023/08. link old data with new data for 17.18.R")
 source("code/2023/09. create data for 17.18.R")
 
+source("code/2023/10.1 clean up and fill missing values with NA for all.R")
 
-
-# for (i in vec_files) {
-#   path_file = paste0("code/2023/", i)
-#   source(path_file)
-#   print(i)
-# }
-# 
-df_sdg %>% 
-  ungroup() %>% 
-  select(indicator, value = value_final) %>% 
-  mutate(count = 1) %>% 
-  pivot_wider(names_from = "indicator", 
-              values_from = "count", 
-              values_fn = sum) %>% 
-  filter(!is.na(value)) %>% 
-  # print %>%
-  arrange(value)
-
-
-df_sdg %>% 
-  ungroup() %>% 
-  select(indicator, value_2023) %>% 
-  mutate(count = 1) %>% 
-  pivot_wider(names_from = "indicator", 
-              values_from = "count", 
-              values_fn = sum) %>% 
-  filter(!is.na(value_2023)) %>% 
-  # print %>% 
-  arrange(value_2023)
-
-
-
-df_sdg %>% 
-  ungroup() %>% 
-  select(indicator, value = value_2022) %>% 
-  mutate(count = 1) %>% 
-  pivot_wider(names_from = "indicator", 
-              values_from = "count", 
-              values_fn = sum) %>% 
-  filter(!is.na(value) )%>% 
-  # print %>% 
-  arrange(value)
+source("code/2023/10.2 correcting errors.R")
+source("code/2023/10.3 regroup 17.18 after correcting errors.R")
+source("code/2023/11. merge to a single data file for reporting.R")
+source("code/2023/12.1 prepare names for codes.R")
