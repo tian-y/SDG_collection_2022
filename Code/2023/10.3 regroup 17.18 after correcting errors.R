@@ -21,10 +21,37 @@ df_sdg_region <- df_sdg %>%
   ungroup() %>% 
   rename(m49 = region_code) 
 
+df_sdg_region_nas <- df_sdg %>% 
+  # rename(year = reportedyear) %>% 
+  filter(indicator != "nsds_none" , indicator != "nsds_exist") %>% 
+  group_by(region_code, year, indicator
+           , region_type) %>% 
+  mutate(obs  = n()) %>% 
+  group_by(region_code, year, indicator
+           , region_type, value, obs
+  ) %>% 
+  summarise(cnt_na = n()) %>% 
+  filter(is.na(value)) %>% 
+  filter(cnt_na == obs) %>% 
+  ungroup() %>% 
+  select(region_code, year, indicator) %>% 
+  unique %>% 
+  mutate(to_replace_with_na = T) %>% 
+  rename(m49 = region_code)
+
+
 df_sdg_region <- df_sdg_region %>% 
   arrange(indicator, year, m49, region_type) %>% 
   group_by(indicator, year, m49) %>% 
   filter(!duplicated(m49)) 
+
+df_sdg_region <- df_sdg_region %>% 
+  left_join(df_sdg_region_nas) %>% 
+  mutate(total = ifelse(is.na(to_replace_with_na), total, NA)) %>% 
+  select(-to_replace_with_na) 
+
+rm(df_sdg_region_nas)
+  
 
 df_sdg_country <- df_sdg %>% 
   # rename(year = reportedyear) %>% 
