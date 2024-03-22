@@ -1,0 +1,172 @@
+﻿tid,countryname,token,M49Code,ISOCode
+1,Åland Islands,wBv5hd8jPq44EFw,248,ALA
+2,Albania,Msq5xzucGk1WThc,8,ALB
+3,Algeria,aTza1dkWVcffUxG,12,DZA
+4,Andorra,ivozgATYctl3KhO,20,AND
+5,Angola,V135Bo9FZbgXZwg,24,AGO
+6,Antigua and Barbuda,pzvtP0gOcHBPLBs,28,ATG
+7,Argentina,lFbajiA28nN2srW,32,ARG
+8,Armenia,lepsyZjzhzSPOnJ,51,ARM
+9,Aruba,igE4gSKs0i2rRRi,533,ABW
+10,Australia,Dr3swVP4S46DejQ,36,AUS
+11,Austria,CZeoeOG1hM7tPvy,40,AUT
+12,Azerbaijan,WnnSXsWYcvWHAXW,31,AZE
+13,Bahrain,8szKrkfwkQw6mxx,48,BHR
+14,Bangladesh,XsLFT2XUDaPKMAG,50,BGD
+15,Barbados,zsDyd3NNRHS8DUo,52,BRB
+16,Belarus,c7u0SWakK58a3I8,112,BLR
+17,Belgium,3lvHaW8cXyk8PVq,56,BEL
+18,Belize,0zlhSJa1x2L4n5t,84,BLZ
+19,Benin,oqaq8XpbzlTdp83,204,BEN
+20,Bhutan,C2Pszgebk7mA7lD,64,BTN
+21,Bolivia (Plurinational State of),giXoA7xMjUeNdhg,68,BOL
+22,Bosnia and Herzegovina,oDKQyQjparBLTAC,70,BIH
+23,Botswana,TSwCxhW3uXwLtix,72,BWA
+24,Brazil,k9LvwqAQSxq12hg,76,BRA
+25,Brunei Darussalam,T5zE0VFih4zkbms,96,BRN
+26,Bulgaria,AtQwAEgvf1XycdG,100,BGR
+27,Burundi,XUwa9Yksa0zpaDn,108,BDI
+28,Cambodia,OxDKfXAwjzzAJw6,116,KHM
+29,Cameroon,lgkZ3UBygxw3dW3,120,CMR
+30,Canada,PshG08gPH8kR4x3,124,CAN
+31,Central African Republic,TTozHtKNLpt0PI9,140,CAF
+32,Chile,tV3rRY63a0rkziQ,152,CHL
+33,China,Fe3E4hEnEymegO4,156,CHN
+34,Colombia,1eolBQFwtttYHoT,170,COL
+35,Comoros,ARlhzIQCwdgY2eJ,174,COM
+36,Congo,Kp1cx4nJBVJXphQ,178,COG
+37,Costa Rica,HI90ZN9ZYqyAMVz,188,CRI
+38,Côte d'Ivoire,pT2rNaTpPLznAjo,384,CIV
+39,Croatia,95anSLmktKKtZ0r,191,HRV
+40,Cuba,zTjfWLxR0KOE5yy,192,CUB
+41,Cyprus,vY2ZOj6pbT243F1,196,CYP
+42,Czechia,alS4cRMLOMwXfqM,203,CZE
+43,Denmark,m1x3PeSvnOYNFYb,208,DNK
+44,Djibouti,Qw51cEV7J7KfCPJ,262,DJI
+45,Dominican Republic,zhslLQ7nPSN2ZFg,214,DOM
+46,Ecuador,DxBppwpYJFijowH,218,ECU
+47,Egypt,rWhm0k5wfjcDUqS,818,EGY
+48,Equatorial Guinea,3gSSsiMf0J7oKDu,226,GNQ
+49,Estonia,76JkcQdh3OknsDe,233,EST
+50,Eswatini,eewnTmQ5iwRjppp,748,SWZ
+51,Ethiopia,lBO9dPTSW9CY6JL,231,ETH
+52,Finland,4wCYRIJkbtHRH0B,246,FIN
+53,France,9B3XkLoX3lazZto,250,FRA
+54,Gabon,IlSkDaoaaz44CAL,266,GAB
+55,Gambia,a43YJzPXweEibmz,270,GMB
+56,Georgia,7kAuEFoXVFfYT8j,268,GEO
+57,Germany,CwzC9odORGEi9Tv,276,DEU
+58,Ghana,ooLasf3s0ZYJ2wU,288,GHA
+59,Greece,QRTNlniaBlJ7CTz,300,GRC
+60,Greenland,AeDDERXMnvcsXau,304,GRL
+61,Grenada,d19hIWm7YCWyadP,308,GRD
+62,Guatemala,s9azNLLVgCZYnBm,320,GTM
+63,Guinea,yELjW9VBx9qGFt7,324,GIN
+64,Guyana,FRKQe5dDSzQpz3o,328,GUY
+65,Hungary,44ikTvs0y1hVpJz,348,HUN
+66,Iceland,DvYwV7zpnbJrvNg,352,ISL
+67,India,fao6ru4UzWNq4VL,356,IND
+68,Indonesia,RUPa8BANR7VNVzd,360,IDN
+69,Iran (Islamic Republic of),qBcKdC8jDBCzfTw,364,IRN
+70,Iraq,IDqaZXUOxs6TP8h,368,IRQ
+71,Ireland,GIl1a6vQNhYqh56,372,IRL
+72,Israel,CiT5bZhZ2FaCp2h,376,ISR
+73,Italy,58SodFhlqhjQkaJ,380,ITA
+74,Jamaica,yNdRvjRudFyzsfX,388,JAM
+75,Japan,ACD9OtcTOTrWTGZ,392,JPN
+76,Jordan,k8PNeAJhhP9YSRc,400,JOR
+77,Kazakhstan,ZkwLm0tJ7yYGUcS,398,KAZ
+78,Kenya,ohJiGlm8CVgbUXw,404,KEN
+79,Kuwait,dsuWzPS9loeYlW4,414,KWT
+80,Lao People's Democratic Republic,Bp4chagUuRPCn37,418,LAO
+81,Latvia,wRIFGDKXXw9aPtU,428,LVA
+82,Lebanon,qT3oPEdNNqNN8bz,422,LBN
+83,Lesotho,x5epU9IDSNcUAvB,426,LSO
+84,Liberia,MRfy79rPAmZEQvn,430,LBR
+85,Libya,hlXXfUt0ROYX1kP,434,LBY
+86,Liechtenstein,Jc2W3z2I27ilhCy,438,LIE
+87,Lithuania,HfkuMZ0GXtSUyNO,440,LTU
+88,Luxembourg,ryGBFdopZQuXCku,442,LUX
+89,Madagascar,HW6a15kAlvafA0I,450,MDG
+90,Malawi,JIKBb7QH55rka5V,454,MWI
+91,Malaysia,osGyv0nBiKZDrmT,458,MYS
+92,Maldives,SMaQwp35QafMHSF,462,MDV
+93,Mali,dLVF2NqZm2mpQqQ,466,MLI
+94,Malta,9zztBbfaQJtb4r2,470,MLT
+95,Marshall Islands,glYCxboBXVdt7G8,584,MHL
+96,Mauritania,uq65aiQJ6Or4D5z,478,MRT
+97,Mauritius,XAazTSKoKqhkdKE,480,MUS
+98,Mexico,ZVHnk5uTaHpzKNM,484,MEX
+99,Micronesia (Federated States of),CQVM4NqTImTAyP4,583,FSM
+100,Monaco,JLedr6dSD8LRCyO,492,MCO
+101,Mongolia,rpvdlnmuFaPtP9Z,496,MNG
+102,Montenegro,83FoR5qYBnqvuRG,499,MNE
+103,Montserrat,hxGZKE4vZE8x5yo,500,MSR
+104,Morocco,dIOdgBf3wwPa4k2,504,MAR
+105,Mozambique,sG7WizdWAfL0Snx,508,MOZ
+106,Myanmar,NTMMJSBMK2Qo3AV,104,MMR
+107,Namibia,dVnLJe70E1yL5fN,516,NAM
+108,Nepal,OERJ7JpJAB8zVG0,524,NPL
+109,Netherlands,zbzkjnfak3DtdGo,528,NLD
+110,New Zealand,UBDKwCvHC9oBHaQ,554,NZL
+111,Niger,RSbfxzeqzm65Dan,562,NER
+112,Nigeria,hkX5hfNEOehgmGA,566,NGA
+113,North Macedonia,c4zyKBQqn3MP6d5,807,MKD
+114,Norway,cHjEA0yv5uAWLzW,578,NOR
+115,Oman,3OGywH07EqbllPe,512,OMN
+116,Pakistan,jv6i4tYZpPooako,586,PAK
+117,Palau,ts4JusBp88AKdTa,585,PLW
+118,Panama,KqNthqTWVy9aMjp,591,PAN
+119,Paraguay,8Cxzex2lwz5KYi4,600,PRY
+120,Peru,tqLlgcrwAGQ8L4s,604,PER
+121,Philippines,pp92Hzqqmf9EnN5,608,PHL
+122,Poland,z8gM1LUxjVQeEA4,616,POL
+123,Portugal,AnXeFGhGjs1Bg7z,620,PRT
+124,Qatar,eLBn1OzICBrxsh1,634,QAT
+125,Republic of Korea,JdZOrQfNVKlqTpv,410,KOR
+126,Republic of Moldova,YRUwGTFqAOXNBsx,498,MDA
+127,Romania,r4UwcMKc9TbO7Rv,642,ROU
+128,Russian Federation,8J9z0K6yFeqE03V,643,RUS
+129,Rwanda,EsahMgVLNOgYWMm,646,RWA
+130,Saint Kitts and Nevis,zpBn9LLwNQdwcUu,659,KNA
+131,Saint Lucia,4nQmZT2G1Ua1gYg,662,LCA
+132,Samoa,QSmlh7UlCyB10ZS,882,WSM
+133,Sao Tome and Principe,aQzfQcUKldGZ1Jp,678,STP
+134,Saudi Arabia,lUgdSmzThNIVjg3,682,SAU
+135,Senegal,dhJq1Zgu80C8kyv,686,SEN
+136,Serbia,uDabVDUjCxfnN3L,688,SRB
+137,Sierra Leone,EnByf6naZXaf9DX,694,SLE
+138,Singapore,mtayKpzmIsa7c1i,702,SGP
+139,Slovakia,GgUWCOyfikyvG1X,703,SVK
+140,Slovenia,zsW0Gys7TZEzkrU,705,SVN
+141,Somalia,kFfc4GX3m6ja5fG,706,SOM
+142,South Africa,j8xIN9A8LhF74Oh,710,ZAF
+143,South Sudan,EMi9cRpB2JTncVH,728,SSD
+144,Spain,AAM0jpMZVTEa5Ki,724,ESP
+145,Sri Lanka,xJI9ZOasod5lGYH,144,LKA
+146,State of Palestine,oFHtvjvzeuI9clw,275,PSE
+147,Sudan,vDJbCZ5o51aeK6a,729,SDN
+148,Suriname,V6AYZrbxlZLnTdC,740,SUR
+149,Sweden,w3DnUpdSak4SGKZ,752,SWE
+150,Switzerland,EZnVljb3S8llmqF,756,CHE
+151,Syrian Arab Republic,UHYbQL6qu9az7W9,760,SYR
+152,Tajikistan,ExbAAKS8LU53lTe,762,TJK
+153,Thailand,TrGs4dU7ePR5cI9,764,THA
+154,Timor-Leste,DRZJV0OS78HOLl3,626,TLS
+155,Togo,tijq7gDofKFFbp5,768,TGO
+156,Trinidad and Tobago,DMUYEnkttBzu6h0,780,TTO
+157,Tunisia,wnZzggaWQZ2xo3v,788,TUN
+158,Türkiye,u8OayOVE7tymq89,792,TUR
+159,Uganda,7QJwf1oXF7aEaWt,800,UGA
+160,Ukraine,Dx1GImhvvAabmzM,804,UKR
+161,United Arab Emirates,jwXfzNB1DPaA8lC,784,ARE
+162,United Kingdom of Great Britain and Northern Ireland,rczh1u0uyPsGIaZ,826,GBR
+163,United Republic of Tanzania,W3ojZciLXj9yjv9,834,TZA
+164,United States of America,ELhAVileFWz18lg,840,USA
+165,Uruguay,8cdJE4Q8xicamGS,858,URY
+166,Uzbekistan,Imn7ZEarFT4lzYP,860,UZB
+167,Venezuela (Bolivarian Republic of),9az6emPIKOwtzcN,862,VEN
+168,Viet Nam,HOXQGuxHYeiO8gW,704,VNM
+169,Yemen,3Jn8CHlzMsRygOx,887,YEM
+170,Zambia,DK7CaIo8aRZ3g5W,894,ZMB
+171,Zimbabwe,2Q5VDMaA2Ds5QSm,716,ZWE

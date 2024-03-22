@@ -1,7 +1,9 @@
 rm(list = ls())
 source("code/boot.R")
 ## working on 17.18
-df_sdg_reporting_regions <- readRDS("data/2023/09 17.18 ready raw data.RDS")
+df_sdg_reporting_regions <- readRDS(paste0("data/",
+                                           format(Sys.Date(), "%Y"), 
+                                           "/09 17.18 ready raw data.RDS"))
 
 df_sdg_1718 <- df_sdg_reporting_regions %>% 
   spread(key = year, value = total, fill = NA) %>% 
@@ -16,11 +18,15 @@ df_sdg_1718 <- df_sdg_1718 %>%
   mutate(total = as.integer(total))
 
 df_sdg_1718 %>% 
-  saveRDS("data/2023/10. 17.18 filling missing values.RDS")
+  saveRDS(paste0("data/",
+                 format(Sys.Date(), "%Y"), 
+                 "/10. 17.18 filling missing values.RDS"))
 
 rm(df_sdg_reporting_regions)
 
-df_sdg_1719 <- readRDS("data/2023/07 17.19.1 ready raw data.RDS")
+df_sdg_1719 <- readRDS(paste0("data/",
+                              format(Sys.Date(), "%Y"), 
+                              "/07 17.19.1 ready raw data.RDS"))
 
 df_entity_code <- df_sdg_1718 %>% 
   select(m49) %>% 
@@ -48,6 +54,8 @@ df_sdg_1719 <- df_sdg_1719 %>%
 
 
 df_sdg_1719 %>% 
-  saveRDS("data/2023/10. 17.19 filling missing values.RDS")
+  saveRDS(paste0("data/",
+                 format(Sys.Date(), "%Y"), 
+                 "/10. 17.19 filling missing values.RDS"))
 
 

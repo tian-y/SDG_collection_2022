@@ -1,7 +1,10 @@
 rm(list = ls())
 
 
-df_sdg <- readRDS(file = "Data/2023/01. data_for_reporting.RDS")
+df_sdg <- readRDS(file = paste0("Data/", 
+                                format(Sys.Date(), "%Y"), 
+                                "/01. data_for_reporting.RDS")
+                  )
 names(df_sdg)
 
 df_sdg %>% 
@@ -38,5 +41,7 @@ df_sdg %>%
   sapply( table)
 
 
-saveRDS(df_sdg, file = "Data/2023/02. numerise data.RDS")
+saveRDS(df_sdg, file = paste0("Data/", 
+                              format(Sys.Date(), "%Y"), 
+                              "/02. numerise data.RDS"), )
   

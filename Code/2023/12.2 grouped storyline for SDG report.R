@@ -1,5 +1,7 @@
 rm(list = ls())
-df_sdg <- readRDS("Data/2023/12.1 sdg reporting file except value column.RDS")
+df_sdg <- readRDS(paste0("Data/", 
+                         year(Sys.Date()), 
+                         "/12.1 sdg reporting file except value column.RDS"))
 df_region_names <- read_csv("Data/Auxiliary/Regional_grouping_storyline_order fixed.csv")
 df_sdg_regions <- df_sdg %>% 
   inner_join(df_region_names) %>% 
@@ -36,9 +38,18 @@ df_sdg %>%
 df_sdg %>% 
   filter(is.na(SeriesDescription))
 
+
+df_sdg_regions %>% 
+  filter(SeriesID == 1827) %>% 
+  # filter(Time_Detail %in% c("2019","2022", "2023")) %>%
+  select(Time_Detail, GeoAreaName, Value, Order) %>%
+  arrange(Order, Time_Detail) %>% 
+  spread(key = Time_Detail, value = Value) %>% 
+  arrange(desc(Order))
+
 df_sdg_regions %>% 
   filter(SeriesID == 1938) %>% 
-  filter(Time_Detail %in% c("2019","2022")) %>%
+  # filter(Time_Detail %in% c("2020","2023")) %>%
   select(Time_Detail, GeoAreaName, Value, Order) %>%
   arrange(Order, Time_Detail) %>% 
   spread(key = Time_Detail, value = Value) %>% 
@@ -49,7 +60,7 @@ df_sdg_regions %>%
 
 df_sdg_regions %>% 
   filter(SeriesID == 1830) %>% 
-  filter(Time_Detail %in% c("2019","2022")) %>%
+  # filter(Time_Detail %in% c("2020","2023")) %>%
   select(Time_Detail, GeoAreaName, Value, Order) %>%
   arrange(Order, Time_Detail) %>% 
   spread(key = Time_Detail, value = Value) %>% 
@@ -57,7 +68,7 @@ df_sdg_regions %>%
 
 df_sdg_regions %>% 
   filter(SeriesID == 1938|SeriesID == 1830) %>% 
-  filter(Time_Detail %in% c("2022")) %>%
+  filter(Time_Detail %in% c("2023")) %>%
   select(SeriesID, GeoAreaName, Value, Order) %>%
   arrange(Order, SeriesID) %>% 
   spread(key = SeriesID, value = Value) %>% 

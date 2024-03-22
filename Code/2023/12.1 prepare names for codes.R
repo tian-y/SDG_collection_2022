@@ -4,7 +4,9 @@
 
 rm(list = ls())
 source("Code/boot.R")
-df_sdg <- readRDS("data/2023/10 all SDG ready to be reported in the simplest format.RDS")
+df_sdg <- readRDS(paste0("data/", 
+                         year(Sys.Date()),
+                         "/10 all SDG ready to be reported in the simplest format.RDS"))
 
 df_code_country <- read_xlsx("document/Code to country names.xlsx")
 df_code_region <- read_xlsx("document/Code to region names.xlsx")
@@ -26,7 +28,9 @@ df_code_names <- df_code_names %>%
 
 ## checking if the list of names covers all the countries in df_sdg
 df_code_names %>%
-  saveRDS(file = "data/Auxiliary/m49 code and names.RDS")
+  saveRDS(file = paste0("data/Auxiliary/m49 code and names_", 
+                        year(Sys.Date()),
+                        ".RDS"))
 # 
 
 names(df_sdg)
@@ -79,7 +83,9 @@ vec_var_ordered <- read_lines("Data/Auxiliary/Variable Order for Output.txt")
 df_sdg_reporting <- df_sdg_reporting %>% 
   select(all_of(vec_var_ordered))
 
-saveRDS(df_sdg_reporting, file = "Data/2023/12.1 sdg reporting file except value column.RDS")
+saveRDS(df_sdg_reporting, file = paste0("Data/", 
+                                        year(Sys.Date()), 
+                                        "/12.1 sdg reporting file except value column.RDS"))
 
 # final format change for df_sdg_reporting
 df_sdg_reporting <- df_sdg_reporting %>% 
@@ -115,7 +121,7 @@ for (i in 1:nrow(df_info)) {
                             sep = "-")
   output_file_name <- paste0(output_file_name, ".xlsx")
   print(output_file_name)
-  output_file_name <- paste0("Output/2023/", output_file_name)
+  output_file_name <- paste0("Output/", year(Sys.Date()), "/", output_file_name)
   
   wb <- loadWorkbook(file = source_file_name)
   writeData(wb, x = df_output, sheet = "Data",rowNames = F, colNames = T,startRow = 1, startCol = 1)

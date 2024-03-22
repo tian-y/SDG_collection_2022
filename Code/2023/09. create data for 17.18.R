@@ -1,10 +1,12 @@
 rm(list = ls())
 gc()
 
-df_sdg <- readRDS("data/2023/08. full 17.18 data without regional aggregation.RDS")
+df_sdg <- readRDS(file = paste0("data/",
+                                format(Sys.Date(), "%Y"), 
+                                "/08. full 17.18 data without regional aggregation.RDS"))
 
 df_sdg %>% 
-  filter(year == 2022, indicator == "nsds_implement", region_code==202)
+  filter(year == as.numeric(format(Sys.Date(), "%Y")), indicator == "nsds_implement", region_code==202)
 
 df_sdg_region <- df_sdg %>% 
   # rename(year = reportedyear) %>% 
@@ -68,5 +70,7 @@ df_sdg_reporting <- rbind(df_sdg_world,
   # filter(year < 2021) %>% 
   # mutate(indicator = "17.19.1")
 
-saveRDS(df_sdg_reporting, file = "data/2023/09 17.18 ready raw data.RDS")
+saveRDS(df_sdg_reporting, file = paste0("data/",
+                                        format(Sys.Date(), "%Y"), 
+                                        "/09 17.18 ready raw data.RDS"))
 
