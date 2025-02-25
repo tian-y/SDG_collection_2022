@@ -10,13 +10,15 @@ df_sdg_regions <- df_sdg %>%
 
 df_sdg_regions %>% 
   filter(Indicator == "17.19.1") %>% 
-  filter(Time_Detail %in% c("2018","2020")) %>% 
+  # filter(Time_Detail %in% c("2015","2020","2021")) %>% 
   select(Time_Detail, GeoAreaName, Value, Order) %>%
   arrange(Order, Time_Detail) %>% 
   spread(key = Time_Detail, value = Value) %>% 
   arrange(desc(Order)) %>% 
-  select(-Order) # %>% 
-  # write_csv("output/2023/story_line_17.19.1_by_region.csv", na = "")
+  select(-Order) %>%
+  write_csv(paste0("output/", 
+                   year(Sys.Date()),
+                   "/story_line_17.19.1_by_region.csv"), na = "")
 
 df_sdg_regions %>% 
   filter(Indicator == "17.19.1") %>% 
@@ -39,13 +41,22 @@ df_sdg %>%
   filter(is.na(SeriesDescription))
 
 
-df_sdg_regions %>% 
+df_story_17182 <- df_sdg_regions %>% 
   filter(SeriesID == 1827) %>% 
   # filter(Time_Detail %in% c("2019","2022", "2023")) %>%
   select(Time_Detail, GeoAreaName, Value, Order) %>%
   arrange(Order, Time_Detail) %>% 
   spread(key = Time_Detail, value = Value) %>% 
   arrange(desc(Order))
+
+df_story_17182
+
+df_story_17182 %>% 
+  select(-Order) %>% 
+  write_csv(paste0("output/", 
+                   year(Sys.Date()),
+                   "/story_line_17.18.2_by_year.csv"), na = "")
+
 
 df_sdg_regions %>% 
   filter(SeriesID == 1938) %>% 

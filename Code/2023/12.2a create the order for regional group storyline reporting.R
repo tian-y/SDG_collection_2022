@@ -13,7 +13,9 @@ df_region_names <- df_region_names %>%
   filter(GeoAreaCode %in% vec_regions) %>% 
   select(-ISOalpha3) 
 df_region_names %>%
-  write_csv("data/Auxiliary/Regional_grouping_storyline_order.csv")
+  write_csv(paste0("data/Auxiliary/Regional_grouping_storyline_order_", 
+                   year(Sys.Date()),
+                   ".csv"))
 rm(vec_regions)
 
 

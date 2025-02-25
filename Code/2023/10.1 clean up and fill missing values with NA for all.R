@@ -32,17 +32,25 @@ df_entity_code <- df_sdg_1718 %>%
   select(m49) %>% 
   unique
 
-df_sdg_1719 <- df_sdg_1719 %>% 
-  filter(year > 2010, year< 2021) 
+# df_sdg_1719 <- df_sdg_1719 %>%
+#   filter(year > 2008)
+
+df_sdg_1719 %>% 
+  filter(is.na(year))
+
+df_sdg_1719 %>% select(year) %>% unique
 
 df_sdg_1719 <- df_sdg_1719 %>% 
   #### !!!! this step will create some rows with empty year values and will affect the reshaping, so make sure to remove those entries before shaping wide to long
   right_join(df_entity_code) %>% 
+  filter(!is.na(year)) %>% 
   spread(key = year, value = total) %>% 
   gather(key = "year", value = total, 
          -m49, -indicator)  %>% 
-  mutate(year = as.numeric(year)) %>% 
-  filter(!is.na(year))
+  mutate(year = as.numeric(year)) %>%
+  filter(!is.na(year)) 
+
+
 
 df_sdg_1719 %>% 
   group_by(year) %>% 
